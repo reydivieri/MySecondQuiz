@@ -107,51 +107,52 @@ const Quiz = ({navigation}) => {
         <Text style={styles.loadText}>LOADING...</Text>
       </View> : questions && (
         <View style={styles.parent}>
-      <View style={styles.counter}>
-        <CountdownCircleTimer
-          size={50}
-          duration={counter}
-          colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-          colorsTime={[15, 9, 5, 1]}
-        >
-          {({ remainingTime }) => <Text>{remainingTime}</Text>}
-        </CountdownCircleTimer>
-      </View>
-      <View style={styles.question}> 
-        <Text style={styles.questionText}>Q. {decodeURIComponent(questions[quest].question)}</Text>
-      </View>
-      <View style={styles.options}>
-        <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[0])}>
-          <Text style={styles.optionsText}>{decodeURIComponent(options[0])}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[1])}>
-          <Text style={styles.optionsText}>{decodeURIComponent(options[1])}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[2])}>
-          <Text style={styles.optionsText}>{decodeURIComponent(options[2])}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[3])}>
-          <Text style={styles.optionsText}>{decodeURIComponent(options[3])}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.button}>
-      <TouchableOpacity style={styles.ton}>
-          <Text style={styles.tonText}>??</Text>
-        </TouchableOpacity>
+          <Text style={styles.judulQuiz}>Quiz Starting!!!</Text>
+          <View style={styles.counter}>
+            <CountdownCircleTimer
+              size={50}
+              duration={counter}
+              colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+              colorsTime={[15, 9, 5, 1]}
+            >
+              {({ remainingTime }) => <Text>{remainingTime}</Text>}
+            </CountdownCircleTimer>
+          </View>
+            <View style={styles.question}> 
+              <Text style={styles.questionText}>Q. {decodeURIComponent(questions[quest].question)}</Text>
+            </View>
+            <View style={styles.options}>
+              <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[0])}>
+                <Text style={styles.optionsText}>A. {decodeURIComponent(options[0])}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[1])}>
+                <Text style={styles.optionsText}>B. {decodeURIComponent(options[1])}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[2])}>
+                <Text style={styles.optionsText}>C. {decodeURIComponent(options[2])}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.optionsButton} onPress={()=> handleSelectedOptions(options[3])}>
+                <Text style={styles.optionsText}>D. {decodeURIComponent(options[3])}</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.button}>
+            <TouchableOpacity style={styles.ton}>
+                <Text style={styles.tonText}>??</Text>
+              </TouchableOpacity>
 
-          {quest!==9 && <TouchableOpacity style={styles.ton} onPress={handleNextPress} >
-          <Text style={styles.tonText}>Skip</Text>
-        </TouchableOpacity>}
+                {quest!==9 && <TouchableOpacity style={styles.ton} onPress={handleNextPress} >
+                <Text style={styles.tonText}>Skip</Text>
+              </TouchableOpacity>}
 
-        {quest===9 && <TouchableOpacity style={styles.ton} onPress={handleShowResults} >
-          <Text style={styles.tonText}>Show Results</Text>
-        </TouchableOpacity>}
+              {quest===9 && <TouchableOpacity style={styles.ton} onPress={handleShowResults} >
+                <Text style={styles.tonText}>Show Results</Text>
+              </TouchableOpacity>}
 
-        
-        {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}>
-          <Text>END</Text>
-        </TouchableOpacity> */}
-      </View>
+              
+              {/* <TouchableOpacity onPress={() => navigation.navigate("Result")}>
+                <Text>END</Text>
+              </TouchableOpacity> */}
+        </View>
       </View>
       )}
     </View>
@@ -194,6 +195,7 @@ const styles = StyleSheet.create({
     color:'white',
   },
   questionText:{
+    marginTop: 20,
     fontSize:28,
   },
   optionsText:{
@@ -226,5 +228,11 @@ const styles = StyleSheet.create({
     padding:10,
     alignSelf: 'flex-end',
     marginTop: -5,
+    position: 'absolute',
+  },
+  judulQuiz:{
+    fontSize: 24,
+    alignSelf: 'flex-start',
+    
   }
 })

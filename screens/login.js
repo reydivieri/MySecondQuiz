@@ -20,10 +20,10 @@ const Login = () => {
                 style={styles.banner}
                 resizeMode="contain"
             />
-            <Text style={styles.judul}></Text>
+            <Text style={styles.judul}>QuizRi</Text>
             <Text style={styles.judul}></Text>
         </View>
-      <TextInput value={email} style={styles.emailInput}></TextInput>
+      <TextInput value={email} placeholder='Masukkan Email' onChangeText={text => setEmail(text)} style={styles.emailInput}></TextInput>
 
     </View>
   )
@@ -31,4 +31,27 @@ const Login = () => {
 
 export default Login
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  emailInput : {
+    backgroundColor : '#219ebc',
+    marginHorizontal : '20',
+  },
+  parent : {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#219ebc',
+    width : 50,
+    borderBottomLeftRadius : 15,
+    borderTopLeftRadius : 50,
+    elevation : 5,
+  },
+  banner: {
+    width : 100,
+    height : 100,
+  },
+  container : {
+    backgroundColor : '219ebc',
+    
+  }
+
+})
